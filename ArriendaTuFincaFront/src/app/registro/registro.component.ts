@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsuarioService } from '../services/usuario/usuario.service';  // Importar el servicio
