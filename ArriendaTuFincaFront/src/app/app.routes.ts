@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
-import { RegistroComponent } from './registro/registro.component'; // Tu componente de registro
+import { RegistroComponent } from './registro/registro.component'; 
+import { BuscarComponent } from './buscar/buscar.component';
 
 
 export const routes: Routes = [
-    { path: 'registro', component: RegistroComponent },  // Ruta para el registro de usuarios
-    // Puedes añadir más rutas aquí según lo necesites
+    { path: 'registro', component: RegistroComponent },  
+    { path: 'buscar', component: BuscarComponent } 
+
 ];
