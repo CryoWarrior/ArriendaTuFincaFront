@@ -1,8 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UsuarioService } from '../services/usuario.service';  // Importar el servicio
-import { Usuario } from '../models/Usuario';  // Importar el modelo que usas
-import { CommonModule, NgIf } from '@angular/common';
+import { Usuario } from '../models/Usuario'; // Importar el modelo que usas
+import { UsuarioService } from '../services/usuario.service'; // Importar el servicio
 
 @Component({
   selector: 'app-registro',
