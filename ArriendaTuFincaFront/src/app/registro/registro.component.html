@@ -54,8 +54,8 @@
     <label for="tipoUsuario">Tipo de Usuario</label>
     <select id="tipoUsuario" type="number" formControlName="tipoUsuario">
       <option value="">Seleccione...</option>
-      <option value="1">Arrendador</option>
-      <option value="2">Arrendatario</option>
+      <option value="0">Arrendador</option>
+      <option value="1">Arrendatario</option>
     </select>
     <div *ngIf="registroForm.get('tipoUsuario')?.invalid && registroForm.get('tipoUsuario')?.touched" class="error">
       <div *ngIf="registroForm.get('tipoUsuario')?.errors?.['required']">El tipo de usuario es obligatorio.</div>
