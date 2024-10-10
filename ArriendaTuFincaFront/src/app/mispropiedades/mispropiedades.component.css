@@ -1,0 +1,58 @@
+.property-title {
+    font-size: 2rem;
+    color: #333;
+    text-align: left;
+    margin: 20px 0 10px 20px;
+}
+
+.property-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 1200px;
+}
+
+.property-card {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px 60px 50px;
+    overflow: hidden;
+}
+
+.property-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.property-details {
+    padding: 15px;
+}
+
+.property-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.property-details .price {
+    font-weight: bold;
+    color: #2d8fdd;
+    margin-bottom: 10px;
+}
+
+.property-details .location {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.property-details .description {
+    font-size: 1rem;
+    color: #333;
+}
