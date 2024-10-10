@@ -12,9 +12,9 @@ export class Alquiler {
 }
 
 export enum EstadoAlquiler {
-    PENDIENTE = 'PENDIENTE',
-    APROBADO = 'APROBADO',
-    RECHAZADO = 'RECHAZADO',
-    FINALIZADO = 'FINALIZADO'
+    PENDIENTE,
+    APROBADO,
+    RECHAZADO,
+    FINALIZADO
 }
   

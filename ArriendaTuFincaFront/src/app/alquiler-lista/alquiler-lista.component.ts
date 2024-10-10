@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './alquiler-lista.component.html',
   styleUrls: ['./alquiler-lista.component.css']
 })
-
 export class AlquilerListaComponent implements OnInit {
   alquileres: Alquiler[] = [];
+
   mensaje: string = '';
 
   constructor(private alquilerService: AlquilerService) {}
@@ -24,15 +24,16 @@ export class AlquilerListaComponent implements OnInit {
   }
 
   obtenerAlquileresPorUsuario(): void {
-    const userId = 1; // Aquí iría el ID del usuario que inicia sesión (se puede obtener de un servicio de autenticación)
+    const userId = 1;
     this.alquilerService.getAlquileresPorUsuario(userId).subscribe({
       next: (alquileres) => {
         this.alquileres = alquileres;
       },
       error: (err) => {
         console.error('Error al obtener los alquileres', err);
-        this.mensaje = 'Error al cargar los alquileres.';
+        this.mensaje = `Error al cargar los alquileres: ${err.message || err.toString()}`;
       }
     });
   }
 }
+
