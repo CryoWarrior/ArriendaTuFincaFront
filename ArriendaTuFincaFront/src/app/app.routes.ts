@@ -6,7 +6,7 @@ import { BuscarComponent } from './buscar/buscar.component';
 
 export const routes: Routes = [
     { path: 'registro', component: RegistroComponent },  
-    { path: 'login', component: LoginComponent },  // Ruta para el inicio de sesion
+    { path: 'login', component: LoginComponent },  
     { path: 'buscar', component: BuscarComponent } 
 
 ];
