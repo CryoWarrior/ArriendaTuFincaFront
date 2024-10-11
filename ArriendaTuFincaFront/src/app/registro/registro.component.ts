@@ -22,9 +22,7 @@ export class RegistroComponent {
       apellido: ['', Validators.required],
       correo: ['', [Validators.required, Validators.email]],
       contrasenia: ['', [Validators.required, Validators.minLength(6)]], 
-      edad: ['', [Validators.required, Validators.min(18)]], 
-      tipoUsuario: ['', Validators.required], 
-      comentarios: ['', Validators.required] 
+      edad: ['', [Validators.required, Validators.min(18)]]
     });
   }
 
@@ -38,9 +36,8 @@ export class RegistroComponent {
         this.registroForm.value.apellido,
         this.registroForm.value.correo,
         this.registroForm.value.contrasenia,
-        this.registroForm.value.edad,
-        Number(this.registroForm.value.tipoUsuario), 
-        this.registroForm.value.comentarios 
+        this.registroForm.value.edad, 
+        null
       );
 
       console.log('Datos enviados:', nuevoUsuario); 

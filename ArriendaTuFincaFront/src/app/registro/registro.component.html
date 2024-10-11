@@ -34,31 +34,11 @@
   </div>
 
   <div>
-    <label for="comentarios">Comentarios</label>
-    <input id="comentarios" formControlName="comentarios">
-    <div *ngIf="registroForm.get('comentarios')?.invalid && registroForm.get('comentarios')?.touched" class="error">
-      <div *ngIf="registroForm.get('comentarios')?.errors?.['required']">Los comentarios son obligatorios.</div>
-    </div>
-  </div>
-
-  <div>
     <label for="edad">Edad</label>
     <input id="edad" type="number" formControlName="edad">
     <div *ngIf="registroForm.get('edad')?.invalid && registroForm.get('edad')?.touched" class="error">
       <div *ngIf="registroForm.get('edad')?.errors?.['required']">La edad es obligatoria.</div>
       <div *ngIf="registroForm.get('edad')?.errors?.['min']">Debes tener al menos 18 años.</div>
-    </div>
-  </div>
-
-  <div>
-    <label for="tipoUsuario">Tipo de Usuario</label>
-    <select id="tipoUsuario" type="number" formControlName="tipoUsuario">
-      <option value="">Seleccione...</option>
-      <option value="0">Arrendador</option>
-      <option value="1">Arrendatario</option>
-    </select>
-    <div *ngIf="registroForm.get('tipoUsuario')?.invalid && registroForm.get('tipoUsuario')?.touched" class="error">
-      <div *ngIf="registroForm.get('tipoUsuario')?.errors?.['required']">El tipo de usuario es obligatorio.</div>
     </div>
   </div>
 

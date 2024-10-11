@@ -5,8 +5,7 @@ export class Usuario {
       public apellido?: string | null,
       public correo?: string | null,
       public contrasenia?: string | null,   
-      public edad?: number | null,          
-      public tipoUsuario?: number | null,   
+      public edad?: number | null,  
       public comentarios?: string | null  
     ){}
   }
