@@ -45,7 +45,7 @@ export class LoginComponent {
                 } else {
                   this.mensaje = 'Usuario Iniciado';
                   this.mensajeColor = 'green'; 
-                  this.router.navigate(['/buscar']); // Redirige a /buscar
+                  this.router.navigate(['/home']); 
                 }
               });
           }

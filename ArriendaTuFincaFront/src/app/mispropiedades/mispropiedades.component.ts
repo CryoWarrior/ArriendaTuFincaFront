@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Propiedad } from '../models/Propiedad'; 
 import { PropiedadUsuarioService } from '../services/propiedad/propiedadUsuario.service';
 import { MatCardModule } from '@angular/material/card';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-property-list',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, HeaderComponent],
   templateUrl: './mispropiedades.component.html',
   styleUrls: ['./mispropiedades.component.css']
 })

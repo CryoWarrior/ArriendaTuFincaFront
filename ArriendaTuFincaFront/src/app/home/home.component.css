@@ -1,0 +1,61 @@
+.home {
+    width: 100%;
+    min-height: calc(100vh - 70px); /* Ajusta este valor según la altura de tu navbar */
+    padding-top: 70px; /* Debe ser igual a la altura de tu navbar */
+    background-position: center top;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.cta-container {
+    margin-top: 2rem;
+}
+
+.cta-button {
+    background-color: #46c942;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #3ab33a;
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}
