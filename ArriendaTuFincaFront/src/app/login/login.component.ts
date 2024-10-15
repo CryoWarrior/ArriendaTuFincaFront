@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) { // Inyecta Router
+  constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) {
     this.loginForm = this.fb.group({
       correo: ['', [Validators.required, Validators.email]],
       contrasenia: ['', [Validators.required, Validators.minLength(6)]]
@@ -32,19 +32,20 @@ export class LoginComponent {
       console.log('Datos enviados:', correo, contrasenia); 
   
       this.usuarioService.checkCorreo(correo)
-        .then(response => {
-          if(response === 'Correo No Encontrado') {
-            this.mensaje = response;
+        .then(usuario => {
+          if (!usuario) {
+            this.mensaje = 'Correo No Encontrado';
             this.mensajeColor = 'red'; 
           } else {
             this.usuarioService.checkContrasenia(correo, contrasenia)
-              .then(response => {
-                if(response === 'Contraseña Incorrecta') {
-                  this.mensaje = response;
+              .then(usuarioAutenticado => {
+                if (!usuarioAutenticado) {
+                  this.mensaje = 'Contraseña Incorrecta';
                   this.mensajeColor = 'red'; 
                 } else {
                   this.mensaje = 'Usuario Iniciado';
                   this.mensajeColor = 'green'; 
+                  console.log('Usuario actual:', usuarioAutenticado);
                   this.router.navigate(['/home']); 
                 }
               });
@@ -57,6 +58,7 @@ export class LoginComponent {
         });
     }
   }
+
   irRegistro() {
     this.router.navigate(['/registro']); 
   }

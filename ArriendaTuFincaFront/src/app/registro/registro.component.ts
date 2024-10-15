@@ -15,8 +15,10 @@ import { Router } from '@angular/router';
 })
 export class RegistroComponent {
   registroForm: FormGroup;
+  mensaje: string = '';
+  mensajeColor: string = '';
 
-  constructor(private fb: FormBuilder, private usuarioService: UsuarioService,  private router: Router) {
+  constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) {
     this.registroForm = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -25,8 +27,6 @@ export class RegistroComponent {
       edad: ['', [Validators.required, Validators.min(18)]]
     });
   }
-
-  mensaje: string = '';
 
   registrarUsuario() {
     if (this.registroForm.valid) {
@@ -43,16 +43,19 @@ export class RegistroComponent {
       console.log('Datos enviados:', nuevoUsuario); 
   
       this.usuarioService.crearUsuario(nuevoUsuario)
-        .then(response => {
-          console.log('Usuario registrado correctamente:', response);
+        .then(usuario => {
+          console.log('Usuario registrado correctamente:', usuario);
           this.mensaje = 'Usuario registrado correctamente';
+          this.mensajeColor = 'green';
           this.registroForm.reset();
-          this.router.navigate(['/buscar']); 
+          console.log('Usuario actual:', this.usuarioService.getUsuarioActual());
+          setTimeout(() => this.router.navigate(['/buscar']), 2000);  // Retraso de 2 segundos antes de navegar
         })
         .catch(error => {
           console.error('Error al registrar usuario:', error);
-          this.mensaje = 'Error al registrar usuario';
+          this.mensaje = 'Error al registrar usuario: ' + (error.response ? error.response.data : error.message);
+          this.mensajeColor = 'red';
         });
     }
   }
-}  
+}

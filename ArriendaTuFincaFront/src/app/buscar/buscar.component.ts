@@ -17,6 +17,7 @@ export class BuscarComponent implements OnInit {
   propiedades: Propiedad[] = [];
   propiedadesFiltradas: Propiedad[] = [];
   busqueda: string = '';
+  userId = 3;
 
   constructor(private propiedadService: PropiedadService) {}
 
@@ -24,13 +25,24 @@ export class BuscarComponent implements OnInit {
     this.cargarPropiedades(); 
   }
 
-  cargarPropiedades(): void {
-    this.propiedadService.obtenerPropiedades().then(data => {
-      this.propiedades = data;
-      this.propiedadesFiltradas = data; // Al iniciar, se muestran todas las propiedades
-    }).catch(error => {
-      console.error('Error al obtener propiedades:', error);
-    });
+  cargarPropiedades(): void {     
+    const usuarioActualString = localStorage.getItem('usuarioActual'); 
+    if (usuarioActualString) { 
+      const usuarioActual = JSON.parse(usuarioActualString); 
+      const userId = usuarioActual.id;
+
+      this.propiedadService.getPropiedadPorId(userId).subscribe({       
+        next: (data: Propiedad[]) => {         
+          this.propiedades = data;       
+          this.propiedadesFiltradas = data;
+        },       
+        error: (err) => {         
+          console.error('Error al obtener las propiedades', err);         
+        }     
+      });     
+    } else {       
+      console.error('No se encontró el usuarioActual en localStorage');     
+    }
   }
 
   filtrarPropiedades(): void {
@@ -38,7 +50,7 @@ export class BuscarComponent implements OnInit {
       str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     this.propiedadesFiltradas = this.propiedades.filter(propiedad =>
-      normalize(propiedad.direccion).includes(normalize(this.busqueda))
+      normalize(propiedad.ciudad).includes(normalize(this.busqueda))
     );
   }
 }

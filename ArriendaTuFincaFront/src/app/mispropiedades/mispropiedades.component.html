@@ -5,10 +5,10 @@
   <div class="propiedades">
     <mat-card *ngFor="let propiedad of propiedades" class="tarjeta">
       <mat-card-header>
-        <mat-card-title><strong>Precio:</strong>${{ propiedad.precio }}</mat-card-title>
+        <mat-card-title><strong>Precio:</strong>${{ propiedad.valorNoche }}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p><strong>Dirección:</strong> {{ propiedad.direccion }}</p>
+        <p><strong>Dirección:</strong> {{ propiedad.ciudad }}</p>
         <p><strong>Área:</strong> {{ propiedad.area }} m²</p>
         <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
       </mat-card-content>
