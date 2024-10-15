@@ -5,7 +5,7 @@
     <div *ngIf="alquileres.length > 0; else sinAlquileres">
       <div *ngFor="let alquiler of alquileres" class="alquiler-item">
         <div>
-          <strong>Propiedad:</strong> {{ alquiler.propiedad.direccion }}
+          <strong>Propiedad:</strong> {{ alquiler.propiedad.ciudad }}
         </div>
         <div>
           <strong>Fecha de Inicio:</strong> {{ alquiler.fechaInicio | date:'shortDate' }}

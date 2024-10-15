@@ -2,22 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import axios from 'axios';
 import { Propiedad } from '../../models/Propiedad';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropiedadService {
-  private apiUrl = 'http://localhost:8082/propiedades/sin-alquiler-aprobado'; 
+  private apiUrl = 'http://localhost:8082/propiedades'; 
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  obtenerPropiedades(): Promise<Propiedad[]> {
-    return axios.get<Propiedad[]>(this.apiUrl)
-      .then(response => 
-        response.data.map((propiedad: Propiedad) => ({
-          ...propiedad,
-          propietarioNombre: `${propiedad.propietario.nombre}` 
-        }))
-      );
+  getPropiedadPorId(userId: number): Observable<Propiedad[]> {
+    return this.http.get<Propiedad[]>(`${this.apiUrl}/usuario/${userId}/sin-alquiler-aprobado`);
   }
 }

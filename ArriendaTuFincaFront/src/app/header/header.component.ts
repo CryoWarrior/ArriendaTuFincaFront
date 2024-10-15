@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../services/usuario/usuario.service'; 
+
 
 @Component({
   selector: 'app-header',
@@ -9,8 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   
-  // Inyecta el Router en el constructor
-  constructor(private router: Router) {}
+  constructor(private router: Router, private usuarioService: UsuarioService) {}
 
   irHome() {
     this.router.navigate(['/home']); 
@@ -26,5 +27,8 @@ export class HeaderComponent {
 
   irSolicitudesAlquiler() {
     this.router.navigate(['/alquileres']);
+  }
+  logout(){
+    this.usuarioService.logout(); 
   }
 }

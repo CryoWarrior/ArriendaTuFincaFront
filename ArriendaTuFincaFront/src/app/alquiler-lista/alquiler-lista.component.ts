@@ -23,16 +23,24 @@ export class AlquilerListaComponent implements OnInit {
   }
 
   obtenerAlquileresPorUsuario(): void {
-    const userId = 1;
-    this.alquilerService.getAlquileresPorUsuario(userId).subscribe({
-      next: (alquileres) => {
-        this.alquileres = alquileres;
-      },
-      error: (err) => {
-        console.error('Error al obtener los alquileres', err);
-        this.mensaje = `Error al cargar los alquileres: ${err.message || err.toString()}`;
-      }
-    });
+    const usuarioActualString = localStorage.getItem('usuarioActual'); 
+    if (usuarioActualString) { 
+      const usuarioActual = JSON.parse(usuarioActualString); 
+      const userId = usuarioActual.id;
+
+      this.alquilerService.getAlquileresPorUsuario(userId).subscribe({
+        next: (alquileres) => {
+          this.alquileres = alquileres;
+        },
+        error: (err) => {
+          console.error('Error al obtener los alquileres', err);
+          this.mensaje = `Error al cargar los alquileres: ${err.message || err.toString()}`;
+        }
+      });
+    } else {       
+      console.error('No se encontró el usuarioActual en localStorage');     
+      this.mensaje = 'No se encontró el usuario actual.';     
+    }
   }
 }
 

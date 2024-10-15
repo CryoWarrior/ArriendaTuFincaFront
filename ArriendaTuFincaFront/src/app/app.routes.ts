@@ -6,15 +6,15 @@ import { MisPropiedadesComponent } from './mispropiedades/mispropiedades.compone
 import { AlquilerListaComponent } from './alquiler-lista/alquiler-lista.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-
+import { AuthGuard } from './auth.guard'; 
 
 export const routes: Routes = [
-    { path: 'registro', component: RegistroComponent },
-    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' }, 
+    { path: 'registro', component: RegistroComponent }, 
+    { path: 'login', component: LoginComponent }, 
     { path: 'home', component: HomeComponent},
-    { path: 'buscar', component: BuscarComponent },
-    { path: 'mispropiedades', component: MisPropiedadesComponent},
-    { path: 'header', component: HeaderComponent},
-    { path: 'alquileres', component: AlquilerListaComponent }
+    { path: 'buscar', component: BuscarComponent, canActivate: [AuthGuard] },
+    { path: 'mispropiedades', component: MisPropiedadesComponent, canActivate: [AuthGuard] },
+    { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] },
+    { path: 'alquileres', component: AlquilerListaComponent, canActivate: [AuthGuard] }
 ];
-
