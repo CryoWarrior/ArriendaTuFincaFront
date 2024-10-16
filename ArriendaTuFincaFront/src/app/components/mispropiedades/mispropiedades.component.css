@@ -1,0 +1,35 @@
+  .titulo-propiedades {
+    text-align: center;  
+    font-size: 2.2rem;   
+    font-weight: bold;   
+    margin-bottom: 20px; 
+  }
+  
+  .propiedades {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+  }
+  
+  .tarjeta {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    max-width: max-content; 
+    position: relative;
+  }
+  
+  .tarjeta h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .tarjeta p {
+    margin: 5px 0;
+    color: #333;
+  }
+
+  

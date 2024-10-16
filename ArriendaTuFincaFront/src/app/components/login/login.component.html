@@ -1,0 +1,28 @@
+<form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+  <div>
+    <label for="correo">Correo</label>
+    <input id="correo" formControlName="correo">
+    <div *ngIf="loginForm.get('correo')?.invalid && loginForm.get('correo')?.touched" class="error">
+      <div *ngIf="loginForm.get('correo')?.errors?.['required']">El correo es obligatorio.</div>
+      <div *ngIf="loginForm.get('correo')?.errors?.['email']">Ingresa un correo válido.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="contrasenia">Contraseña</label>
+    <input type="password" id="contrasenia" formControlName="contrasenia">
+    <div *ngIf="loginForm.get('contrasenia')?.invalid && loginForm.get('contrasenia')?.touched" class="error">
+      <div *ngIf="loginForm.get('contrasenia')?.errors?.['required']">La contraseña es obligatoria.</div>
+      <div *ngIf="loginForm.get('contrasenia')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">Iniciar Sesión</button>
+
+  <div *ngIf="mensaje" class="mensaje" [style.color]="mensajeColor">{{ mensaje }}</div>
+
+  <div class="registro-prompt">
+    <p>Si no tienes cuenta, regístrate:</p>
+    <button type="button" class="registrar-button" (click)="irRegistro()">Registrarse</button>
+  </div>
+</form>

@@ -1,0 +1,32 @@
+<nav class="nav">
+  <div class="container">
+    <div class="logo">
+      <a (click)="irHome()">
+        <img src="favicon.ico" style="width: 50px; height: 50px;">
+      </a>
+    </div>
+    <div id="mainListDiv" class="main_list">
+      <ul class="navlinks">
+        <li><a (click)="irBuscar()">Explorar</a></li>
+        <li><a (click)="irSolicitudesAlquiler()">Solicitudes</a></li>
+        <li><a href="#">Historial</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <button class="explore-btn" (click)="irMisPropiedades()">Mis Propiedades</button>
+      <a href="#" class="profile-icon">
+        <i class="fas fa-user"></i>
+      </a>
+      <a href="#" (click)="logout()" class="logout-icon" style="margin-left: 20px;">
+        <img src="logout.png" alt="logout" style="width: 30px; height: 30px;">
+      </a>
+    </div>
+    <span class="navTrigger">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+  </div>
+</nav>
+<section class="home"></section>
