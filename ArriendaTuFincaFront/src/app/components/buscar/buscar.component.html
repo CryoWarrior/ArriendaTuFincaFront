@@ -5,7 +5,7 @@
 
   <input 
     type="text" 
-    placeholder="Buscar por dirección..." 
+    placeholder="Buscar por palabra clave..." 
     class="busqueda-input" 
     [(ngModel)]="busqueda"
     (ngModelChange)="filtrarPropiedades()"
@@ -23,7 +23,7 @@
         <p><strong>Precio:</strong> ${{ propiedad.valorNoche }}</p>
       </mat-card-content>
       <div class="card-footer">
-        <button class="aplicar-btn">Aplicar</button>
+        <button class="aplicar-btn" (click)="aplicar(propiedad)">Aplicar</button>
       </div>
     </mat-card>
     <div *ngIf="propiedadesFiltradas.length === 0">No se encontraron propiedades.</div>

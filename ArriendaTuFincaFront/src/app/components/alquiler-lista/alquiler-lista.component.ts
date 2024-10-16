@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Alquiler } from '../models/Alquiler';
-import { AlquilerService } from '../services/alquiler/alquiler.service';
+import { Alquiler } from '../../models/Alquiler';
+import { AlquilerService } from '../../services/alquiler/alquiler.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 

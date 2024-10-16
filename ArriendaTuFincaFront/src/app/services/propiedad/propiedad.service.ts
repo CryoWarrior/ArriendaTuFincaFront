@@ -9,11 +9,20 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PropiedadService {
-  private apiUrl = 'http://localhost:8082/propiedades'; 
+  private apiUrl = 'http://localhost:8082/api/propiedades'; 
 
   constructor(private http: HttpClient) { }
 
-  getPropiedadPorId(userId: number): Observable<Propiedad[]> {
+  getPropiedadPorAlquilerNoAprobado(userId: number): Observable<Propiedad[]> {
     return this.http.get<Propiedad[]>(`${this.apiUrl}/usuario/${userId}/sin-alquiler-aprobado`);
   }
-}
+
+  getPropiedadPorId(userId: number): Observable<Propiedad[]> {
+    return this.http.get<Propiedad[]>(`${this.apiUrl}/usuario/${userId}`);
+  }
+
+  putPropiedadPorID(propiedadId: number, propiedad: Propiedad): Observable<Propiedad> {
+    return this.http.put<Propiedad>(`${this.apiUrl}/${propiedadId}`, propiedad);
+  }
+  
+  }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'; 
 import { CommonModule } from '@angular/common';  
-import { Propiedad } from '../models/Propiedad';  
-import { PropiedadUsuarioService } from '../services/propiedad/propiedadUsuario.service'; 
+import { Propiedad } from '../../models/Propiedad';  
+import { PropiedadService } from '../../services/propiedad/propiedad.service'; 
 import { MatCardModule } from '@angular/material/card'; 
 import { HeaderComponent } from '../header/header.component';  
 
@@ -16,7 +16,7 @@ export class MisPropiedadesComponent implements OnInit {
   propiedades: Propiedad[] = [];   
   mensaje: string = '';    
 
-  constructor(private propiedadUsuarioService: PropiedadUsuarioService) {}    
+  constructor(private propiedadUsuarioService: PropiedadService) {}    
 
   ngOnInit(): void {
     this.getPropiedadesPorId();    
