@@ -8,11 +8,15 @@ import { Alquiler } from '../../models/Alquiler';
 })
 export class AlquilerService {
 
-  private baseUrl = 'http://localhost:8082/alquileres'; 
+  private baseUrl = 'http://localhost:8082/api/alquileres'; 
 
   constructor(private http: HttpClient) {}
 
   getAlquileresPorUsuario(userId: number): Observable<Alquiler[]> {
     return this.http.get<Alquiler[]>(`${this.baseUrl}/usuario/${userId}`);
+  }
+
+  crearAlquiler(alquiler: Alquiler): Observable<Alquiler> {
+    return this.http.post<Alquiler>(this.baseUrl, alquiler);
   }
 }

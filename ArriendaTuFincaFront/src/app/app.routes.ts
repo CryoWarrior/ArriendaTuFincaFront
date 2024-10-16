@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component'; 
+import { LoginComponent } from './components/login/login.component'; 
 import { RegistroComponent } from './registro/registro.component';
-import { BuscarComponent } from './buscar/buscar.component';
-import { MisPropiedadesComponent } from './mispropiedades/mispropiedades.component';
-import { AlquilerListaComponent } from './alquiler-lista/alquiler-lista.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { AuthGuard } from './auth.guard'; 
+import { BuscarComponent } from './components/buscar/buscar.component';
+import { MisPropiedadesComponent } from './components/mispropiedades/mispropiedades.component';
+import { AlquilerListaComponent } from './components/alquiler-lista/alquiler-lista.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { AuthGuard } from './auth.guard';
+import { SolicitarArriendoComponent } from './components/solicitar-arriendo/solicitar-arriendo.component'; 
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' }, 
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'buscar', component: BuscarComponent, canActivate: [AuthGuard] },
     { path: 'mispropiedades', component: MisPropiedadesComponent, canActivate: [AuthGuard] },
     { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] },
-    { path: 'alquileres', component: AlquilerListaComponent, canActivate: [AuthGuard] }
+    { path: 'alquileres', component: AlquilerListaComponent, canActivate: [AuthGuard] },
+    { path: 'solicitar-arriendo', component: SolicitarArriendoComponent, canActivate: [AuthGuard] },
 ];

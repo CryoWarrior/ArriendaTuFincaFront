@@ -12,7 +12,7 @@ export class UsuarioService {
   constructor() { }
 
   crearUsuario(usuario: Usuario): Promise<Usuario> {
-    return axios.post<Usuario>('http://localhost:8082/usuarios', usuario)
+    return axios.post<Usuario>('http://localhost:8082/api/usuarios', usuario)
       .then(response => {
         this.setUsuarioActual(response.data);
         return response.data;
@@ -20,13 +20,13 @@ export class UsuarioService {
   }
 
   checkCorreo(correo: string): Promise<Usuario | null> {
-    return axios.get<Usuario>('http://localhost:8082/usuarios/checkMail/' + correo)
+    return axios.get<Usuario>('http://localhost:8082/api/usuarios/checkMail/' + correo)
       .then(response => response.data)
       .catch(() => null);
   }
 
   checkContrasenia(correo: string, contrasenia: string): Promise<Usuario | null> {
-    return axios.get<Usuario>('http://localhost:8082/usuarios/checkPassword/' + contrasenia + '/' + correo)
+    return axios.get<Usuario>('http://localhost:8082/api/usuarios/checkPassword/' + contrasenia + '/' + correo)
       .then(response => {
         if (response.data) {
           this.setUsuarioActual(response.data);
