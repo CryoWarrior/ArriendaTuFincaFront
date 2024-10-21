@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from '../../services/usuario/usuario.service';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
@@ -11,19 +12,17 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class MiPerfilComponent implements OnInit {
 
+
   usuarioActual: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private usuarioService:UsuarioService) { }
 
   ngOnInit(): void {
     this.loadUserData();
   }
 
   loadUserData(): void {
-    const usuarioActualString = localStorage.getItem("usuarioActual");
-    if (usuarioActualString) { 
-        this.usuarioActual = JSON.parse(usuarioActualString); 
-    }
+    this.usuarioActual = this.usuarioService.getUsuarioActual();
   }
 
   editProfile(): void {
