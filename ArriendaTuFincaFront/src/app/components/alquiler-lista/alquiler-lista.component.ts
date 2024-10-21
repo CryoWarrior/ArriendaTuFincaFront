@@ -3,11 +3,12 @@ import { Alquiler } from '../../models/Alquiler';
 import { AlquilerService } from '../../services/alquiler/alquiler.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-alquiler-lista',
   standalone: true,  
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './alquiler-lista.component.html',
   styleUrls: ['./alquiler-lista.component.css']
 })

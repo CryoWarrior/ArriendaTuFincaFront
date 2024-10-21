@@ -1,0 +1,49 @@
+.footer {
+    background-color: #333; /* Color de fondo */
+    color: white; /* Color del texto */
+    text-align: center; /* Alineación del texto */
+    padding: 20px 0; /* Espaciado superior e inferior */
+    margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1500px; /* Igual que en el home */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 0 20px; /* Espaciado lateral */
+  }
+  
+  .logo img {
+    width: 100px; /* Ajusta el tamaño del logo */
+    margin-bottom: 10px; /* Espacio debajo del logo */
+  }
+  
+  .contact-info {
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #ddd; /* Color del texto */
+  }
+  
+  /* Ajustes responsive */
+  @media (max-width: 768px) {
+    .logo img {
+      width: 80px; /* Tamaño reducido para móviles */
+    }
+  
+    .contact-info {
+      font-size: 0.9rem; /* Tamaño de fuente reducido */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+      padding: 15px 0; /* Espaciado reducido para pantallas pequeñas */
+    }
+  
+    .logo img {
+      width: 70px; /* Tamaño aún más reducido para pantallas pequeñas */
+    }
+  
+    .contact-info {
+      font-size: 0.8rem; /* Tamaño de fuente aún más reducido */
+    }
+  }

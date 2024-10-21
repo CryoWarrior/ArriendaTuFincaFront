@@ -5,13 +5,14 @@ import { PropiedadService } from '../../services/propiedad/propiedad.service';
 import { Propiedad } from '../../models/Propiedad'; 
 import { MatCardModule } from '@angular/material/card';
 import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-buscar',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatCardModule, HeaderComponent], 
+  imports: [CommonModule, FormsModule, MatCardModule, HeaderComponent, FooterComponent], 
   templateUrl: './buscar.component.html',
   styleUrls: ['./buscar.component.css'], 
 })
