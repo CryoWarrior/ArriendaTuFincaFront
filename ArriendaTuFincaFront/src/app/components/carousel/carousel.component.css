@@ -1,0 +1,113 @@
+.carousel-container {
+  position: relative;
+  margin: 0px auto;
+  text-align: center;
+  width: 900px;
+  border-radius: 15px;
+  box-shadow: 0 20px 16px #dce1e1;
+  padding: 0;
+}
+
+/* Imágenes del carrusel */
+.carousel-container img {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 500px;
+  border-radius: 15px;
+  /* Quitamos la transición suave */
+  transition: none;
+}
+
+/* Hacemos visible la imagen activa sin transición */
+.carousel-container img.image-active {
+  opacity: 1;
+  position: relative;
+  transition: none;
+}
+
+/* Texto antes de la imagen */
+.carousel-text {
+  color: white;
+  font-weight: bold;
+  font-size: 80px;
+  text-align: center;
+  font-family: Georgia;
+  margin-top: 0px;
+}
+
+/* Indicadores */
+.carousel-dot-container {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: none;
+  opacity: 0.5;
+}
+
+.active,
+.dot:hover {
+  opacity: 1;
+}
+
+/* Eliminamos animación de fade */
+.fade {
+  animation: none;
+}
+
+/* Botones de navegación del carrusel */
+.btn-carousel {
+  position: absolute;
+  top: 50%; /* Centrado verticalmente */
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.btn-prev {
+  left: 0;
+}
+
+.btn-next {
+  right: 0; /* Pegado al borde derecho */
+}
+
+.icon-carousel {
+  color: black;
+  opacity: 0.5;
+  transition: none;
+}
+
+.icon-carousel:hover {
+  opacity: 1;
+}
+
+.icon-carousel:active {
+  opacity: 0.5;
+}
+
+.icon-next,
+.icon-prev {
+  font-size: 35px;
+}

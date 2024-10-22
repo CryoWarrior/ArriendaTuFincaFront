@@ -70,3 +70,7 @@
   border-color: #4CAF50;
   box-shadow: 0 0 8px rgba(0, 128, 0, 0.2);
 }
+
+app-footer {
+  margin-top: auto; /* Hace que el footer se mantenga al final */
+}

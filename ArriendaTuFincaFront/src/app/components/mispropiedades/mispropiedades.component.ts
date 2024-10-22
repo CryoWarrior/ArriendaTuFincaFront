@@ -4,11 +4,12 @@ import { Propiedad } from '../../models/Propiedad';
 import { PropiedadService } from '../../services/propiedad/propiedad.service'; 
 import { MatCardModule } from '@angular/material/card'; 
 import { HeaderComponent } from '../header/header.component';  
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({   
   selector: 'app-property-list',   
   standalone: true,   
-  imports: [CommonModule, MatCardModule, HeaderComponent],   
+  imports: [CommonModule, MatCardModule, HeaderComponent, FooterComponent],   
   templateUrl: './mispropiedades.component.html',   
   styleUrls: ['./mispropiedades.component.css'] 
 })  
