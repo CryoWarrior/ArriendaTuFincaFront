@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Usuario } from '../../models/Usuario';
 import axios from 'axios';
+import { Usuario } from '../../models/Usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+
+
+
   private usuarioActual: Usuario | null = null;
 
   constructor() { }
@@ -59,6 +61,15 @@ export class UsuarioService {
       console.warn("localStorage no está disponible en este entorno.");
       return null;
     }
+  }
+
+  updateUsuario(usuario: Usuario): Promise<Usuario> {
+    console.log('Usuario a actualizar:', usuario);
+    return axios.put<Usuario>(`http://localhost:8082/api/usuarios/${this.usuarioActual?.id}`, usuario)
+      .then(response => {
+        this.setUsuarioActual(response.data);
+        return response.data;
+      });
   }
   
 
