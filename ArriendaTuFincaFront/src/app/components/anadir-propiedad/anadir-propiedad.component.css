@@ -1,0 +1,91 @@
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+    /* Ocupa el ancho completo */
+}
+
+/* Estilo para los inputs y selects */
+input,
+select,
+textarea {
+    flex: 1;
+    /* Permite que los inputs se expandan y ocupen el espacio disponible */
+    height: 30px;
+    /* Ajusta la altura */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo específico para el textarea */
+textarea {
+    height: 80px;
+    /* Altura del textarea */
+    resize: vertical;
+    /* Permite cambiar el tamaño verticalmente */
+}
+
+/* Estilo para mensajes de error */
+.error {
+    color: #f00;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Estilo para el botón de envío */
+button[type="submit"] {
+    width: 100%;
+    /* Ancho completo */
+    height: 40px;
+    /* Altura del botón */
+    background-color: #4CAF50;
+    /* Color verde */
+    color: #fff;
+    /* Letras blancas */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+button[type="submit"]:hover {
+    background-color: #3e8e41;
+    /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo para el botón deshabilitado */
+button[type="submit"]:disabled {
+    background-color: #ccc;
+    /* Color gris */
+    cursor: not-allowed;
+    /* Cursor deshabilitado */
+}
+
+/* Estilo para los mensajes de retroalimentación */
+p {
+    text-align: center;
+    font-size: 14px;
+}

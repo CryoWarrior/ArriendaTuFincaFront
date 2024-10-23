@@ -1,22 +1,25 @@
 import { Usuario } from "./Usuario";
 
 export class Propiedad {
-    id!: number;
-    nombre!: string; 
-    area!: number;
-    propietario!: Usuario; 
-    ciudad!: string; 
-    tipoIngreso!: TipoIngreso; 
-    disponible!: boolean;
-    tipoPropiedad!: TipoPropiedad; 
-    descripcion!: string;
-    cantidadHabitaciones!: number; 
-    cantidadBanios!: number;
-    aceptaMascotas!: boolean; 
-    tienePiscina!: boolean; 
-    tieneAsador!: boolean; 
-    valorNoche!: number; 
+    constructor(
+        public id?: number | null,
+        public nombre?: string | null,
+        public area?: number | null,
+        public propietario?: Usuario,
+        public ciudad?: string | null,
+        public tipoIngreso?: TipoIngreso | null,
+        public disponible?: boolean | null,
+        public tipoPropiedad?: TipoPropiedad | null,
+        public descripcion?: string | null,
+        public cantidadHabitaciones?: number | null,
+        public cantidadBanios?: number | null,
+        public aceptaMascotas?: boolean | null,
+        public tienePiscina?: boolean | null,
+        public tieneAsador?: boolean | null,
+        public valorNoche?: number | null
+    ) { }
 }
+
 
 export enum TipoPropiedad {
     FINCA,
@@ -26,8 +29,8 @@ export enum TipoPropiedad {
 }
 
 export enum TipoIngreso {
-    MUNICIPIO, 
-    PRINCIPAL, 
+    MUNICIPIO,
+    PRINCIPAL,
     SECUNDARIA,
     TERCIARIA
 }

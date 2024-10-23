@@ -26,7 +26,7 @@ export class SolicitarArriendoComponent implements OnInit {
     private router: Router,
     private alquilerService: AlquilerService,
     private propiedadService: PropiedadService // Añadir el servicio de propiedad
-  ) {}
+  ) { }
 
   ngOnInit() {
     const state = history.state;
@@ -35,6 +35,7 @@ export class SolicitarArriendoComponent implements OnInit {
       this.alquiler.propiedad = this.propiedad!;
     } else {
       console.error('No se recibió información de la propiedad');
+      this.errorMensaje = 'No se recibió información de la propiedad';
     }
 
     const usuarioActualString = localStorage.getItem('usuarioActual');
@@ -42,11 +43,12 @@ export class SolicitarArriendoComponent implements OnInit {
       this.alquiler.usuarioAsignado = JSON.parse(usuarioActualString) as Usuario;
     } else {
       console.error('No se encontró el usuario actual en localStorage');
+      this.errorMensaje = 'No se encontró el usuario actual en la sesión';
     }
   }
 
   validarFechas() {
-    this.errorMensaje = ''; 
+    this.errorMensaje = '';
 
     const hoy = new Date();
     hoy.setHours(0, 0, 0, 0);
@@ -67,7 +69,7 @@ export class SolicitarArriendoComponent implements OnInit {
   }
 
   onFechaInicioChange() {
-    this.validarFechas(); 
+    this.validarFechas();
   }
 
   onFechaFinChange() {
@@ -76,7 +78,7 @@ export class SolicitarArriendoComponent implements OnInit {
 
   onSubmit() {
     if (!this.validarFechas()) {
-      return; 
+      return;
     }
 
     this.alquiler.fechaInicio = this.fechaInicio;
@@ -88,9 +90,9 @@ export class SolicitarArriendoComponent implements OnInit {
     this.alquilerService.crearAlquiler(this.alquiler).subscribe({
       next: (response) => {
         console.log('Alquiler creado con éxito', response);
-        
+
         // Si la propiedad existe, proceder con el cambio del atributo 'disponible' a false
-        if (this.propiedad) {
+        if (this.propiedad && this.propiedad.id !== null && this.propiedad.id !== undefined) {
           this.propiedad.disponible = false;
           this.propiedadService.putPropiedadPorID(this.propiedad.id, this.propiedad).subscribe({
             next: () => {
@@ -103,6 +105,7 @@ export class SolicitarArriendoComponent implements OnInit {
             }
           });
         } else {
+          console.error('ID de propiedad no válido:', this.propiedad?.id);
           this.router.navigate(['/buscar']); // Redirigir en caso de que no haya propiedad que actualizar
         }
       },
@@ -113,3 +116,5 @@ export class SolicitarArriendoComponent implements OnInit {
     });
   }
 }
+
+

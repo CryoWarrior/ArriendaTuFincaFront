@@ -6,15 +6,16 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { MisPropiedadesComponent } from './components/mispropiedades/mispropiedades.component';
-import { AlquilerListaComponent } from './components/alquiler-lista/alquiler-lista.component'; 
-import { HeaderComponent } from './components/header/header.component'; 
+import { AlquilerListaComponent } from './components/alquiler-lista/alquiler-lista.component';
+import { HeaderComponent } from './components/header/header.component';
 import { SolicitarArriendoComponent } from './components/solicitar-arriendo/solicitar-arriendo.component';
+import { AnadirPropiedadComponent } from './components/anadir-propiedad/anadir-propiedad.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  
-  imports: [RouterOutlet, RouterModule, RegistroComponent, BuscarComponent, LoginComponent, CommonModule, MisPropiedadesComponent, AlquilerListaComponent, HeaderComponent, SolicitarArriendoComponent], 
+
+  imports: [RouterOutlet, RouterModule, RegistroComponent, BuscarComponent, LoginComponent, CommonModule, MisPropiedadesComponent, AlquilerListaComponent, HeaderComponent, SolicitarArriendoComponent, AnadirPropiedadComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

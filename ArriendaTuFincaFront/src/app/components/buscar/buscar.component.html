@@ -3,18 +3,13 @@
 <div class="buscar-container">
   <h1 class="titulo-propiedades">Propiedades disponibles</h1>
 
-  <input 
-    type="text" 
-    placeholder="Buscar por palabra clave..." 
-    class="busqueda-input" 
-    [(ngModel)]="busqueda"
-    (ngModelChange)="filtrarPropiedades()"
-  />
+  <input type="text" placeholder="Buscar por palabra clave..." class="busqueda-input" [(ngModel)]="busqueda"
+    (ngModelChange)="filtrarPropiedades()" />
 
   <div class="resultados">
     <mat-card *ngFor="let propiedad of propiedadesFiltradas" class="tarjeta">
       <mat-card-header>
-        <mat-card-title><strong>Propietario: </strong>{{propiedad.propietario.nombre}}</mat-card-title>
+        <mat-card-title><strong>Propietario: </strong>{{propiedad?.propietario?.nombre}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <p><strong>Dirección:</strong> {{ propiedad.ciudad }}</p>
