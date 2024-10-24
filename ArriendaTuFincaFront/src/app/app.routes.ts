@@ -16,6 +16,7 @@ import { SolicitarArriendoComponent } from './components/solicitar-arriendo/soli
 import { DetallesSolicitudComponent } from './components/detalles-solicitud/detalles-solicitud.component';
 import { AnadirPropiedadComponent } from './components/anadir-propiedad/anadir-propiedad.component';
 import { EditarPropiedadComponent } from './components/editar-propiedad/editar-propiedad.component';
+import { DetallesAlquilerComponent } from './components/detalles-alquiler/detalles-alquiler.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,10 +29,11 @@ export const routes: Routes = [
     { path: 'mispropiedades', component: MisPropiedadesComponent, canActivate: [AuthGuard] },
     { path: 'header', component: HeaderComponent, canActivate: [AuthGuard] },
     { path: 'carrusel', component: CarouselComponent, canActivate: [AuthGuard] },
-    { path: 'alquileres', component: MisAlquileresComponent, canActivate: [AuthGuard] },
     { path: 'solicitar-arriendo', component: SolicitarArriendoComponent, canActivate: [AuthGuard] },
     { path: 'solicitudes', component: SolicitudesComponent, canActivate: [AuthGuard] },
     { path: 'solicitudes/:id', component: DetallesSolicitudComponent, canActivate: [AuthGuard] },
+    { path: 'alquileres', component: MisAlquileresComponent, canActivate: [AuthGuard] },
+    { path: 'alquileres/:id', component: DetallesAlquilerComponent, canActivate: [AuthGuard] },
     { path: 'anadir-propiedad', component: AnadirPropiedadComponent },
     { path: 'editar-propiedad/:id', component: EditarPropiedadComponent, canActivate: [AuthGuard] },
 

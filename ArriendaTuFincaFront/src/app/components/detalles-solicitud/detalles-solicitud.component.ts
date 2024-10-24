@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { Resenia } from '../../models/Resenia';
+import { ReseniaService } from '../../services/resenia/resenia.service';
 
 
 @Component({
@@ -17,9 +19,14 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class DetallesSolicitudComponent implements OnInit {
   solicitud: Alquiler | null = null;
+  resenias: Resenia[] = [];
   mensaje: string = '';
 
-  constructor(private route: ActivatedRoute, private alquilerService: AlquilerService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private alquilerService: AlquilerService,
+    private reseniaService: ReseniaService
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -32,10 +39,26 @@ export class DetallesSolicitudComponent implements OnInit {
     this.alquilerService.getAlquilerPorId(id).subscribe({
       next: (solicitud) => {
         this.solicitud = solicitud;
+        if (solicitud.usuarioAsignado && solicitud.usuarioAsignado.id != null) {
+          this.obtenerReseniasPorUsuario(solicitud.usuarioAsignado.id);
+        }
+        
       },
       error: (err) => {
         console.error('Error al obtener los detalles del alquiler', err);
         this.mensaje = `Error al cargar los detalles: ${err.message || err.toString()}`;
+      }
+    });
+  }
+
+  obtenerReseniasPorUsuario(idUsuario: number): void {
+    this.reseniaService.getReseniasPorUsuario(idUsuario).subscribe({
+      next: (resenias) => {
+        this.resenias = resenias;
+      },
+      error: (err) => {
+        console.error('Error al obtener las reseñas', err);
+        this.mensaje = `Error al cargar las reseñas: ${err.message || err.toString()}`;
       }
     });
   }

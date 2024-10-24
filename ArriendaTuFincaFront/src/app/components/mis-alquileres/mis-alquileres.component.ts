@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-mis-alquileres',
@@ -19,7 +21,7 @@ export class MisAlquileresComponent {
 
   mensaje: string = '';
 
-  constructor(private alquilerService: AlquilerService) {}
+  constructor(private router: Router, private alquilerService: AlquilerService) {}
 
   ngOnInit(): void {
     this.obtenerAlquileresPorUsuario();
@@ -48,8 +50,7 @@ export class MisAlquileresComponent {
   }
 
   revisarAlquiler(alquiler: Alquiler): void {
-    // Aquí podrías implementar lógica para cancelar un alquiler
-    // Por ejemplo, llamando a un servicio que interactúe con el backend
-    console.log('Poner pantalla alquiler:', alquiler);
+    this.router.navigate([`/alquileres/${alquiler.id}`]);
+
   }
 }
