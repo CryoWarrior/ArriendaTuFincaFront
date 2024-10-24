@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="profile-container">
+  <h2>Mi Perfil</h2>
+  <div class="profile-info">
+    <div class="profile-item">
+      <label for="nombre">Nombre:</label>
+      <span id="nombre">{{ usuarioActual.nombre }}</span>
+      <label for="apellido" style="margin-left: 20px;">Apellido:</label>
+      <span id="apellido">{{ usuarioActual.apellido }}</span>
+    </div>
+    <div class="profile-item">
+      <label for="correo">Correo:</label>
+      <span id="correo">{{ usuarioActual.correo }}</span>
+    </div>
+    <div class="profile-item">
+      <label for="edad">Edad:</label>
+      <span id="edad">{{ usuarioActual.edad }}</span>
+    </div>
+  </div>
+  <button class="edit-button" (click)="editProfile()">Editar Información</button>
+</div>

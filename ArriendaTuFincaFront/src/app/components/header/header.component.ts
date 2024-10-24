@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../../services/usuario/usuario.service'; 
+import { UsuarioService } from '../../services/usuario/usuario.service';
 
 
 @Component({
@@ -10,8 +10,13 @@ import { UsuarioService } from '../../services/usuario/usuario.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
   
   constructor(private router: Router, private usuarioService: UsuarioService) {}
+
+  irDetalleUsuario() {
+    this.router.navigate(['/perfil']);
+    }
 
   irHome() {
     this.router.navigate(['/home']); 
@@ -37,4 +42,5 @@ export class HeaderComponent {
   logout(){
     this.usuarioService.logout(); 
   }
+  
 }
