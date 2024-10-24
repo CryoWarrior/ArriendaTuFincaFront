@@ -12,7 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MiPerfilComponent } from './components/mi-perfil/mi-perfil.component';
 import { SolicitarArriendoComponent } from './components/solicitar-arriendo/solicitar-arriendo.component';
 import { AnadirPropiedadComponent } from './components/anadir-propiedad/anadir-propiedad.component';
-import { AuthGuard } from './auth.guard';
+import { EditarPropiedadComponent } from './components/editar-propiedad/editar-propiedad.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,5 +28,6 @@ export const routes: Routes = [
     { path: 'alquileres', component: AlquilerListaComponent, canActivate: [AuthGuard] },
     { path: 'solicitar-arriendo', component: SolicitarArriendoComponent, canActivate: [AuthGuard] },
     { path: 'anadir-propiedad', component: AnadirPropiedadComponent },
-    { path: 'editar-propiedad/:id', component: AnadirPropiedadComponent }
+    { path: 'editar-propiedad/:id', component: EditarPropiedadComponent, canActivate: [AuthGuard] },
+
 ];

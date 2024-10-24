@@ -5,11 +5,13 @@ import { PropiedadService } from '../../services/propiedad/propiedad.service';
 import { Propiedad, TipoPropiedad, TipoIngreso } from '../../models/Propiedad';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario/usuario.service';
+import { HeaderComponent } from "../header/header.component";
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
     selector: 'app-anadir-propiedad',
     standalone: true,
-    imports: [FormsModule, ReactiveFormsModule, CommonModule],
+    imports: [FormsModule, ReactiveFormsModule, CommonModule, HeaderComponent, FooterComponent],
     templateUrl: './anadir-propiedad.component.html',
     styleUrls: ['./anadir-propiedad.component.css'],
     encapsulation: ViewEncapsulation.None

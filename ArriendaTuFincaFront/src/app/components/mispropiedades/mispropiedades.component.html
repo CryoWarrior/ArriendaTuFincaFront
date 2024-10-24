@@ -16,7 +16,7 @@
       <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button class="editar-btn">Editar propiedad</button>
+      <button mat-button class="editar-btn" (click)="editarPropiedad(propiedad.id ?? 0)">Editar propiedad</button>
     </mat-card-actions>
   </mat-card>
   <div *ngIf="propiedades.length === 0">No se encontraron propiedades.</div>

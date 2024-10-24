@@ -1,132 +1,59 @@
+<app-header></app-header>
 <div class="form-container">
     <h2>Añadir Nueva Propiedad</h2>
     <form [formGroup]="propiedadForm" (ngSubmit)="anadirPropiedad()">
-        <!-- Campo Nombre -->
         <div>
             <label for="nombre">Nombre</label>
             <input id="nombre" formControlName="nombre" type="text" required>
-            <div *ngIf="propiedadForm.get('nombre')?.invalid && propiedadForm.get('nombre')?.touched">
-                <small class="error">El nombre es requerido.</small>
-            </div>
         </div>
-
-        <!-- Campo Área -->
         <div>
             <label for="area">Área (m²)</label>
             <input id="area" formControlName="area" type="number" required>
-            <div *ngIf="propiedadForm.get('area')?.invalid && propiedadForm.get('area')?.touched">
-                <small class="error" *ngIf="propiedadForm.get('area')?.errors?.['required']">El área es
-                    requerida.</small>
-                <small class="error" *ngIf="propiedadForm.get('area')?.errors?.['min']">El área debe ser mayor a
-                    0.</small>
-            </div>
         </div>
-
-        <!-- Campo Ciudad -->
         <div>
             <label for="ciudad">Ciudad</label>
             <input id="ciudad" formControlName="ciudad" type="text" required>
-            <div *ngIf="propiedadForm.get('ciudad')?.invalid && propiedadForm.get('ciudad')?.touched">
-                <small class="error">La ciudad es requerida.</small>
-            </div>
         </div>
-
-        <!-- Campo Tipo de Ingreso -->
-        <div>
-            <label for="tipoIngreso">Tipo de Ingreso</label>
-            <select id="tipoIngreso" formControlName="tipoIngreso" required>
-                <option [ngValue]="null">Seleccione una opción</option>
-                <option *ngFor="let option of tipoIngresoOptions" [value]="option.valor">{{ option.nombre }}</option>
-            </select>
-            <div *ngIf="propiedadForm.get('tipoIngreso')?.invalid && propiedadForm.get('tipoIngreso')?.touched">
-                <small class="error">El tipo de ingreso es requerido.</small>
-            </div>
-        </div>
-
-        <!-- Campo Tipo de Propiedad -->
         <div>
             <label for="tipoPropiedad">Tipo de Propiedad</label>
             <select id="tipoPropiedad" formControlName="tipoPropiedad" required>
                 <option [ngValue]="null">Seleccione una opción</option>
-                <option *ngFor="let option of tipoPropiedadOptions" [value]="option.valor">{{ option.nombre }}</option>
+                <option *ngFor="let option of tipoPropiedadOptions" [ngValue]="option.valor">{{ option.nombre }}
+                </option>
             </select>
-            <div *ngIf="propiedadForm.get('tipoPropiedad')?.invalid && propiedadForm.get('tipoPropiedad')?.touched">
-                <small class="error">El tipo de propiedad es requerido.</small>
-            </div>
         </div>
-
-        <!-- Campo Descripción -->
+        <div>
+            <label for="tipoIngreso">Tipo de Ingreso</label>
+            <select id="tipoIngreso" formControlName="tipoIngreso" required>
+                <option [ngValue]="null">Seleccione una opción</option>
+                <option *ngFor="let option of tipoIngresoOptions" [ngValue]="option.valor">{{ option.nombre }}</option>
+            </select>
+        </div>
         <div>
             <label for="descripcion">Descripción</label>
             <textarea id="descripcion" formControlName="descripcion" required></textarea>
-            <div *ngIf="propiedadForm.get('descripcion')?.invalid && propiedadForm.get('descripcion')?.touched">
-                <small class="error">La descripción es requerida.</small>
-            </div>
         </div>
-
-        <!-- Campo Cantidad de Habitaciones -->
-        <div>
-            <label for="cantidadHabitaciones">Cantidad de Habitaciones</label>
-            <input id="cantidadHabitaciones" formControlName="cantidadHabitaciones" type="number" required>
-            <div
-                *ngIf="propiedadForm.get('cantidadHabitaciones')?.invalid && propiedadForm.get('cantidadHabitaciones')?.touched">
-                <small class="error" *ngIf="propiedadForm.get('cantidadHabitaciones')?.errors?.['required']">Debe
-                    especificar al menos 1 habitación.</small>
-                <small class="error" *ngIf="propiedadForm.get('cantidadHabitaciones')?.errors?.['min']">Debe ser al
-                    menos 1 habitación.</small>
-            </div>
-        </div>
-
-        <!-- Campo Cantidad de Baños -->
         <div>
             <label for="cantidadBanios">Cantidad de Baños</label>
             <input id="cantidadBanios" formControlName="cantidadBanios" type="number" required>
-            <div *ngIf="propiedadForm.get('cantidadBanios')?.invalid && propiedadForm.get('cantidadBanios')?.touched">
-                <small class="error" *ngIf="propiedadForm.get('cantidadBanios')?.errors?.['required']">Debe especificar
-                    al menos 1 baño.</small>
-                <small class="error" *ngIf="propiedadForm.get('cantidadBanios')?.errors?.['min']">Debe ser al menos 1
-                    baño.</small>
-            </div>
         </div>
-
-        <!-- Campo Valor por Noche -->
+        <div>
+            <label for="cantidadHabitaciones">Cantidad de Habitaciones</label>
+            <input id="cantidadHabitaciones" formControlName="cantidadHabitaciones" type="number" required>
+        </div>
         <div>
             <label for="valorNoche">Valor por Noche</label>
             <input id="valorNoche" formControlName="valorNoche" type="number" required>
-            <div *ngIf="propiedadForm.get('valorNoche')?.invalid && propiedadForm.get('valorNoche')?.touched">
-                <small class="error" *ngIf="propiedadForm.get('valorNoche')?.errors?.['required']">El valor por noche es
-                    requerido.</small>
-                <small class="error" *ngIf="propiedadForm.get('valorNoche')?.errors?.['min']">Debe ser mayor a
-                    0.</small>
-            </div>
         </div>
-
-        <!-- Checkboxes -->
-        <div>
-            <label>
-                <input type="checkbox" formControlName="disponible"> Disponible
-            </label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" formControlName="disponible"> Disponible</label>
+            <label><input type="checkbox" formControlName="aceptaMascotas"> Acepta Mascotas</label>
+            <label><input type="checkbox" formControlName="tienePiscina"> Tiene Piscina</label>
+            <label><input type="checkbox" formControlName="tieneAsador"> Tiene Asador</label>
         </div>
-        <div>
-            <label>
-                <input type="checkbox" formControlName="aceptaMascotas"> Acepta Mascotas
-            </label>
-        </div>
-        <div>
-            <label>
-                <input type="checkbox" formControlName="tienePiscina"> Tiene Piscina
-            </label>
-        </div>
-        <div>
-            <label>
-                <input type="checkbox" formControlName="tieneAsador"> Tiene Asador
-            </label>
-        </div>
-
-        <!-- Botón de Envío -->
         <button type="submit" [disabled]="!propiedadForm.valid">Añadir Propiedad</button>
     </form>
-
-    <!-- Mensaje de Error Global -->
     <p [style.color]="mensajeColor">{{ mensaje }}</p>
 </div>
+
+<app-footer></app-footer>

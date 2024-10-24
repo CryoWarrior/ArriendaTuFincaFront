@@ -29,4 +29,9 @@ export class PropiedadService {
     return this.http.post<Propiedad>(`${this.apiUrl}`, propiedad);
   }
 
+  getInfoPropiedadById(propiedadId: number): Observable<Propiedad> {
+    return this.http.get<Propiedad>(`${this.apiUrl}/${propiedadId}`);
+  }
+
+
 }
