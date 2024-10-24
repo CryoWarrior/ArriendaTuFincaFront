@@ -21,13 +21,19 @@ export class HeaderComponent {
     this.router.navigate(['/buscar']); 
   }
 
+  irSolicitudesAlquiler() {
+    this.router.navigate(['/solicitudes']);
+  }
+
   irMisPropiedades() {
     this.router.navigate(['/mispropiedades']);
   }
+  
 
-  irSolicitudesAlquiler() {
+  irMisArriendos() {
     this.router.navigate(['/alquileres']);
   }
+
   logout(){
     this.usuarioService.logout(); 
   }

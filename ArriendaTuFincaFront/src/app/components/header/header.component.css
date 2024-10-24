@@ -51,6 +51,8 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    justify-content: center; 
+    gap: 30px;
 }
 
 .navlinks li {
@@ -72,7 +74,7 @@ body {
 
 .nav-right {
     display: flex;
-    align-items: center;
+    align-items: right;
 }
 
 .explore-btn {

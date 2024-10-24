@@ -15,8 +15,19 @@ export class AlquilerService {
   getAlquileresPorUsuario(userId: number): Observable<Alquiler[]> {
     return this.http.get<Alquiler[]>(`${this.baseUrl}/usuario/${userId}`);
   }
+  
+  getSolicitudesPorPropietario(propietarioId: number): Observable<Alquiler[]> {
+    return this.http.get<Alquiler[]>(`${this.baseUrl}/usuario/${propietarioId}/solicitudes`);
+  }
+
+  getAlquilerPorId(id: number): Observable<Alquiler> {
+    return this.http.get<Alquiler>(`${this.baseUrl}/${id}`);
+  }
 
   crearAlquiler(alquiler: Alquiler): Observable<Alquiler> {
     return this.http.post<Alquiler>(this.baseUrl, alquiler);
   }
+
+  
+  
 }

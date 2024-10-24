@@ -1,0 +1,28 @@
+<div class="contenedor-principal">
+    <app-header></app-header>
+  
+    <div class="alquileres-container">
+      <h1 class="titulo-alquileres">Mis Alquileres</h1>
+  
+      <div class="resultados">
+        <mat-card *ngFor="let alquiler of alquileres" class="tarjeta">
+          <mat-card-header>
+            <mat-card-title><strong>Propiedad:</strong> {{ alquiler.propiedad.nombre }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Ciudad:</strong> {{ alquiler.propiedad.ciudad }}</p>
+            <p><strong>Área:</strong> {{ alquiler.propiedad.area }} m²</p>
+            <p><strong>Fecha Inicio:</strong> {{ alquiler.fechaInicio | date }}</p>
+            <p><strong>Fecha Fin:</strong> {{ alquiler.fechaFin | date }}</p>
+            <p><strong>Estado:</strong> {{ alquiler.estado }}</p>
+          </mat-card-content>
+          <div class="card-footer">
+            <button class="aplicar-btn" (click)="revisarAlquiler(alquiler)">Revisar Alquiler</button>
+          </div>
+        </mat-card>
+        <div *ngIf="alquileres.length === 0">No tienes alquileres actualmente.</div>
+      </div>
+    </div>
+  
+    <app-footer></app-footer>
+  </div>
