@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="buscar-container">
+  <h1 class="titulo-propiedades">Propiedades disponibles</h1>
+
+  <input type="text" placeholder="Buscar por palabra clave..." class="busqueda-input" [(ngModel)]="busqueda"
+    (ngModelChange)="filtrarPropiedades()" />
+
+  <div class="resultados">
+    <mat-card *ngFor="let propiedad of propiedadesFiltradas" class="tarjeta">
+      <mat-card-header>
+        <mat-card-title><strong>Propietario: </strong>{{propiedad?.propietario?.nombre}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Dirección:</strong> {{ propiedad.ciudad }}</p>
+        <p><strong>Área:</strong> {{ propiedad.area }} m²</p>
+        <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
+        <p><strong>Precio:</strong> ${{ propiedad.valorNoche }}</p>
+      </mat-card-content>
+      <div class="card-footer">
+        <button class="aplicar-btn" (click)="aplicar(propiedad)">Aplicar</button>
+      </div>
+    </mat-card>
+    <div *ngIf="propiedadesFiltradas.length === 0">No se encontraron propiedades.</div>
+  </div>
+</div>
+
+<app-footer></app-footer>

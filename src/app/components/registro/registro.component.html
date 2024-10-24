@@ -1,0 +1,49 @@
+<form [formGroup]="registroForm " (ngSubmit)="registrarUsuario()" >
+  <div>
+    <label for="nombre">Nombre</label>
+    <input id="nombre" formControlName="nombre">
+    <div *ngIf="registroForm.get('nombre')?.invalid && registroForm.get('nombre')?.touched" class="error">
+      <div *ngIf="registroForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="apellido">Apellido</label>
+    <input id="apellido" formControlName="apellido">
+    <div *ngIf="registroForm.get('apellido')?.invalid && registroForm.get('apellido')?.touched" class="error">
+      <div *ngIf="registroForm.get('apellido')?.errors?.['required']">El apellido es obligatorio.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="correo">Correo</label>
+    <input id="correo" formControlName="correo">
+    <div *ngIf="registroForm.get('correo')?.invalid && registroForm.get('correo')?.touched" class="error">
+      <div *ngIf="registroForm.get('correo')?.errors?.['required']">El correo es obligatorio.</div>
+      <div *ngIf="registroForm.get('correo')?.errors?.['email']">Ingresa un correo válido.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="contrasenia">Contraseña</label>
+    <input type="password" id="contrasenia" formControlName="contrasenia">
+    <div *ngIf="registroForm.get('contrasenia')?.invalid && registroForm.get('contrasenia')?.touched" class="error">
+      <div *ngIf="registroForm.get('contrasenia')?.errors?.['required']">La contraseña es obligatoria.</div>
+      <div *ngIf="registroForm.get('contrasenia')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="edad">Edad</label>
+    <input id="edad" type="number" formControlName="edad">
+    <div *ngIf="registroForm.get('edad')?.invalid && registroForm.get('edad')?.touched" class="error">
+      <div *ngIf="registroForm.get('edad')?.errors?.['required']">La edad es obligatoria.</div>
+      <div *ngIf="registroForm.get('edad')?.errors?.['min']">Debes tener al menos 18 años.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="registroForm.invalid">Registrar</button>
+
+  <div *ngIf="mensaje" class="mensaje">{{ mensaje }}</div>
+
+</form>

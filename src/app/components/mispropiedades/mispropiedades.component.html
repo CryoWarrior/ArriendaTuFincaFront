@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="header">
+  <h1 class="titulo-propiedades">Mis Propiedades</h1>
+  <button mat-button class="agregar-propiedad-btn" [routerLink]="['/anadir-propiedad']">Agregar Propiedad</button>
+</div>
+
+<div class="propiedades">
+  <mat-card *ngFor="let propiedad of propiedades" class="tarjeta">
+    <mat-card-header>
+      <mat-card-title><strong>Precio:</strong>${{ propiedad.valorNoche }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Dirección:</strong> {{ propiedad.ciudad }}</p>
+      <p><strong>Área:</strong> {{ propiedad.area }} m²</p>
+      <p><strong>Descripción:</strong> {{ propiedad.descripcion }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button class="editar-btn" (click)="editarPropiedad(propiedad.id ?? 0)">Editar propiedad</button>
+    </mat-card-actions>
+  </mat-card>
+  <div *ngIf="propiedades.length === 0">No se encontraron propiedades.</div>
+</div>
+
+<app-footer></app-footer>

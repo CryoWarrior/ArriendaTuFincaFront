@@ -1,0 +1,30 @@
+<div class="contenedor-principal">
+
+<app-header></app-header>
+
+<div class="solicitudes-container">
+  <h1 class="titulo-solicitudes">Solicitudes de Alquiler a Mis Propiedades</h1>
+
+  <div class="resultados">
+    <mat-card *ngFor="let solicitud of solicitudes" class="tarjeta">
+      <mat-card-header>
+        <mat-card-title><strong>Propiedad:</strong> {{ solicitud.propiedad.nombre }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Ciudad:</strong> {{ solicitud.propiedad.ciudad }}</p>
+        <p><strong>Área:</strong> {{ solicitud.propiedad.area }} m²</p>
+        <p><strong>Inquilino:</strong> {{ solicitud.usuarioAsignado.nombre }} {{ solicitud.usuarioAsignado.apellido }}</p>
+        <p><strong>Fecha Inicio:</strong> {{ solicitud.fechaInicio | date }}</p>
+        <p><strong>Fecha Fin:</strong> {{ solicitud.fechaFin | date }}</p>
+        <p><strong>Estado:</strong> {{ solicitud.estado }}</p>
+      </mat-card-content>
+      <div class="card-footer">
+        <button class="aplicar-btn" (click)="detallesSolicitud(solicitud)">Detalles Solicitud</button>
+      </div>
+    </mat-card>
+    <div *ngIf="solicitudes.length === 0">{{ mensaje }}</div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+</div>

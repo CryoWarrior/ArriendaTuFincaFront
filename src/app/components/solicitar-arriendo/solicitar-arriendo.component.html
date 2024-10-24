@@ -1,0 +1,48 @@
+<div class="solicitar-arriendo-container">
+  <h2 class="titulo-solicitud">Solicitud de Arriendo para: {{propiedad?.nombre || 'Propiedad'}}</h2>
+
+  <div class="contenido-dividido" *ngIf="propiedad; else noPropiedadTemplate">
+    <div class="detalles-propiedad">
+      <h3>Detalles de la Propiedad</h3>
+      <p><strong>Nombre:</strong> {{propiedad.nombre}}</p>
+      <p><strong>Área:</strong> {{propiedad.area}} m²</p>
+      <p><strong>Propietario:</strong> {{propiedad?.propietario?.nombre}} {{propiedad?.propietario?.apellido}}</p>
+      <p><strong>Ciudad:</strong> {{propiedad.ciudad}}</p>
+      <p><strong>Tipo de Propiedad:</strong> {{propiedad.tipoPropiedad}}</p>
+      <p><strong>Descripción:</strong> {{propiedad.descripcion}}</p>
+      <p><strong>Cantidad de Habitaciones:</strong> {{propiedad.cantidadHabitaciones}}</p>
+      <p><strong>Cantidad de Baños:</strong> {{propiedad.cantidadBanios}}</p>
+      <p><strong>Acepta Mascotas:</strong> {{propiedad.aceptaMascotas ? 'Sí' : 'No'}}</p>
+      <p><strong>Tiene Piscina:</strong> {{propiedad.tienePiscina ? 'Sí' : 'No'}}</p>
+      <p><strong>Tiene Asador:</strong> {{propiedad.tieneAsador ? 'Sí' : 'No'}}</p>
+      <p><strong>Valor por dNoche:</strong> ${{propiedad.valorNoche}}</p>
+    </div>
+
+    <div class="formulario-solicitud">
+      <h3>Solicitud de Alquiler</h3>
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="fechaInicio">Fecha de Inicio:</label>
+          <input type="date" id="fechaInicio" name="fechaInicio" [(ngModel)]="fechaInicio"
+            (change)="onFechaInicioChange()" required>
+        </div>
+        <div class="form-group">
+          <label for="fechaFin">Fecha de Fin:</label>
+          <input type="date" id="fechaFin" name="fechaFin" [(ngModel)]="fechaFin" (change)="onFechaFinChange()"
+            required>
+        </div>
+        <div *ngIf="errorMensaje" class="error-mensaje">
+          {{ errorMensaje }}
+        </div>
+        <button type="submit" class="aplicar-btn">Enviar Solicitud</button>
+      </form>
+    </div>
+
+  </div>
+
+  <ng-template #noPropiedadTemplate>
+    <p class="no-propiedad-mensaje">No se ha recibido información de la propiedad. Por favor, vuelva a la página de
+      búsqueda e intente nuevamente.</p>
+  </ng-template>
+
+</div>

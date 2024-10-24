@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="profile-container">
+  <h2>Editar Perfil</h2>
+  <form [formGroup]="editProfileForm" (ngSubmit)="saveProfile()">
+    <div class="profile-info">
+      <div class="profile-item">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" formControlName="nombre">
+        <div *ngIf="editProfileForm.get('nombre')?.invalid && editProfileForm.get('nombre')?.touched" class="error">
+          <div *ngIf="editProfileForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</div>
+        </div>
+      </div>
+      <div class="profile-item">
+        <label for="apellido" style="margin-left: 20px;">Apellido:</label>
+        <input id="apellido" formControlName="apellido">
+        <div *ngIf="editProfileForm.get('apellido')?.invalid && editProfileForm.get('apellido')?.touched" class="error">
+          <div *ngIf="editProfileForm.get('apellido')?.errors?.['required']">El apellido es obligatorio.</div>
+        </div>
+      </div>
+      <div class="profile-item">
+        <label for="correo">Correo:</label>
+        <input id="correo" formControlName="correo">
+        <div *ngIf="editProfileForm.get('correo')?.invalid && editProfileForm.get('correo')?.touched" class="error">
+          <div *ngIf="editProfileForm.get('correo')?.errors?.['required']">El correo es obligatorio.</div>
+          <div *ngIf="editProfileForm.get('correo')?.errors?.['email']">Ingresa un correo válido.</div>
+        </div>
+      </div>
+      <div class="profile-item">
+        <label for="edad">Edad:</label>
+        <input id="edad" formControlName="edad" type="number">
+        <div *ngIf="editProfileForm.get('edad')?.invalid && editProfileForm.get('edad')?.touched" class="error">
+          <div *ngIf="editProfileForm.get('edad')?.errors?.['required']">La edad es obligatoria.</div>
+          <div *ngIf="editProfileForm.get('edad')?.errors?.['min']">Debes tener al menos 18 años.</div>
+        </div>
+      </div>
+    </div>
+    
+
+    <button class="save-button" type="submit">Guardar Cambios</button>
+  </form>
+</div>

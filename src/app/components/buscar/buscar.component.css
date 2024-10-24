@@ -1,0 +1,76 @@
+.buscar-container {
+  margin: 20px;
+}
+
+.titulo-propiedades {
+  text-align: center;  
+  font-size: 2.2rem;   
+  font-weight: bold;   
+  margin-bottom: 20px; 
+}
+
+.resultados {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+}
+
+.tarjeta {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  max-width: max-content; 
+  position: relative;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end; 
+  margin-top: 10px;
+}
+
+.aplicar-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.aplicar-btn:hover {
+  background-color: #45a049; 
+}
+
+.tarjeta h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  margin: 5px 0;
+  color: #333;
+}
+.busqueda-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.busqueda-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(0, 128, 0, 0.2);
+}
+
+app-footer {
+  margin-top: auto; /* Hace que el footer se mantenga al final */
+}

@@ -1,0 +1,69 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titulo-propiedades {
+  text-align: left;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+
+.agregar-propiedad-btn {
+  background-color: #46c942;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 20px;
+
+}
+
+.propiedades {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tarjeta {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+.tarjeta h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.editar-btn {
+  margin-left: auto;
+  background-color: #46c942;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 20px;
+  padding: 10px 20px;
+}

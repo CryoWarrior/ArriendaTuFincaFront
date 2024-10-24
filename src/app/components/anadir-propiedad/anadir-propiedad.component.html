@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div class="form-container">
+    <h2>Añadir Nueva Propiedad</h2>
+    <form [formGroup]="propiedadForm" (ngSubmit)="anadirPropiedad()">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" formControlName="nombre" type="text" required>
+        </div>
+        <div>
+            <label for="area">Área (m²)</label>
+            <input id="area" formControlName="area" type="number" required>
+        </div>
+        <div>
+            <label for="ciudad">Ciudad</label>
+            <input id="ciudad" formControlName="ciudad" type="text" required>
+        </div>
+        <div>
+            <label for="tipoPropiedad">Tipo de Propiedad</label>
+            <select id="tipoPropiedad" formControlName="tipoPropiedad" required>
+                <option [ngValue]="null">Seleccione una opción</option>
+                <option *ngFor="let option of tipoPropiedadOptions" [ngValue]="option.valor">{{ option.nombre }}
+                </option>
+            </select>
+        </div>
+        <div>
+            <label for="tipoIngreso">Tipo de Ingreso</label>
+            <select id="tipoIngreso" formControlName="tipoIngreso" required>
+                <option [ngValue]="null">Seleccione una opción</option>
+                <option *ngFor="let option of tipoIngresoOptions" [ngValue]="option.valor">{{ option.nombre }}</option>
+            </select>
+        </div>
+        <div>
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" formControlName="descripcion" required></textarea>
+        </div>
+        <div>
+            <label for="cantidadBanios">Cantidad de Baños</label>
+            <input id="cantidadBanios" formControlName="cantidadBanios" type="number" required>
+        </div>
+        <div>
+            <label for="cantidadHabitaciones">Cantidad de Habitaciones</label>
+            <input id="cantidadHabitaciones" formControlName="cantidadHabitaciones" type="number" required>
+        </div>
+        <div>
+            <label for="valorNoche">Valor por Noche</label>
+            <input id="valorNoche" formControlName="valorNoche" type="number" required>
+        </div>
+        <div class="checkbox-group">
+            <label><input type="checkbox" formControlName="disponible"> Disponible</label>
+            <label><input type="checkbox" formControlName="aceptaMascotas"> Acepta Mascotas</label>
+            <label><input type="checkbox" formControlName="tienePiscina"> Tiene Piscina</label>
+            <label><input type="checkbox" formControlName="tieneAsador"> Tiene Asador</label>
+        </div>
+        <button type="submit" [disabled]="!propiedadForm.valid">Añadir Propiedad</button>
+    </form>
+    <p [style.color]="mensajeColor">{{ mensaje }}</p>
+</div>
+
+<app-footer></app-footer>

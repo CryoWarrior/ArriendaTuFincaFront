@@ -1,0 +1,33 @@
+<app-header></app-header>
+
+<div class="detalles-solicitud-container">
+  <h1 class="titulo-detalles">Detalles del Alquiler</h1>
+  
+  <div *ngIf="solicitud; else noDetalles">
+    <p><strong>Propiedad:</strong> {{ solicitud.propiedad.nombre }}</p>
+    <p><strong>Ciudad:</strong> {{ solicitud.propiedad.ciudad }}</p>
+    <p><strong>Área:</strong> {{ solicitud.propiedad.area }} m²</p>
+    <p><strong>Inquilino:</strong> {{ solicitud.usuarioAsignado.nombre }} {{ solicitud.usuarioAsignado.apellido }}</p>
+    <p><strong>Fecha Inicio:</strong> {{ solicitud.fechaInicio | date }}</p>
+    <p><strong>Fecha Fin:</strong> {{ solicitud.fechaFin | date }}</p>
+    <p><strong>Estado:</strong> {{ solicitud.estado }}</p>
+    <p><strong>Comentarios:</strong> {{ solicitud.comentarios || 'No hay comentarios adicionales' }}</p>
+
+    <div class="resenias-container">
+      <h2>Reseñas del Inquilino</h2>
+      <div *ngFor="let resenia of resenias" class="resenia-card">
+        <p><strong>Calificación:</strong> {{ resenia.calificacion }}</p>
+        <p><strong>Comentario:</strong> {{ resenia.comentario }}</p>
+        <p><strong>Calificador:</strong> {{ resenia.usuarioCalificadorId.nombre }} {{ resenia.usuarioCalificadorId.apellido }}</p>
+      </div>
+      <div *ngIf="resenias.length === 0">No hay reseñas disponibles para este inquilino.</div>
+    </div>
+    
+  </div>
+
+  <ng-template #noDetalles>
+    <p>{{ mensaje }}</p>
+  </ng-template>
+</div>
+
+<app-footer></app-footer>
